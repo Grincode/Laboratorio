@@ -1,0 +1,160 @@
+/* Variables para colores */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0c4480;
+    --accent-color: #00c3ff;
+    --footer-bg-color: #f8f9fa;
+    --footer-border-color: #007bff;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --gray-color: #9c9c9c;
+    --form-bg-color: #f8f9fa;
+    --form-border-color: #dee2e6;
+    --hover-bg-color: #0056b3;
+    --component-bg-color: #ffffff;
+    --component-border-color: #dee2e6;
+    --content-box-bg: rgba(0, 0, 0, 0.5);
+}
+
+/* Estructura básica */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Contenedor principal */
+.container-flex {
+    flex: 1;
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+}
+
+#logo {
+    color: var(--primary-color);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: var(--white-color);
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: var(--footer-bg-color);
+    border-top: 2px solid var(--footer-border-color);
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Estilo para los títulos principales */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color),
+        0 0 40px var(--accent-color), 0 0 70px var(--accent-color), 0 0 80px var(--accent-color),
+        0 0 100px var(--accent-color), 0 0 150px var(--accent-color);
+    padding: 10px;
+    display: inline-block;
+    border: 2px solid var(--gray-color);
+    border-radius: 10px;
+}
+
+h2 {
+    color: var(--primary-color);
+}
+
+/* Estilo para los subtítulos */
+h3 {
+    color: #a912e6;
+    margin-bottom: 15px;
+}
+
+/* Estilo para los formularios */
+form {
+    background-color: var(--form-bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--form-border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los botones */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-bg-color);
+    border-color: var(--hover-bg-color);
+}
+
+/* Estilo para la lista de componentes */
+#componentList .component {
+    background-color: var(--component-bg-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--component-border-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo para la imagen de fondo en la página principal */
+.full-background {
+    background: url("/3072674.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+}
+
+.content-box {
+    background: var(--content-box-bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-nav,
+    .jumbotron {
+        text-align: center;
+    }
+
+    .content-box {
+        width: 80%;
+        max-width: 100%;
+        height: auto;
+    }
+}
