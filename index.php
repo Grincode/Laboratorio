@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,40 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Empresa Electrónica</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="navbar.js" defer></script>
+    <script src="footer.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Pasar el nombre de usuario de la sesión a JavaScript
+        const username = "<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>";
+    </script>
 </head>
 
 <body>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html" id="logo">Electro Cordoba</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php">Acerca de</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="services.php">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="components.php">Componentes</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 
-    <!-- Contenido principal con imagen de fondo -->
+    <!-- Contenido principal -->
     <div class="full-background">
         <div class="content-box">
             <h1 class="display-4" data-text="Bienvenido a Empresa Electrónica">Electro Cordoba</h1>
@@ -46,15 +28,12 @@
                 necesidades tecnológicas.</p>
             <hr class="my-4">
             <p>Explora nuestros servicios y conoce más sobre nosotros.</p>
-            <a class="btn btn-primary btn-lg" href="about.html" role="button">Más sobre nosotros</a>
+            <a class="btn btn-primary btn-lg" href="about.php" role="button">Más sobre nosotros</a>
         </div>
     </div>
 
     <!-- Pie de página -->
-    <footer class="footer bg-light text-center py-3">
-        <p>&copy; 2024 Electro Cordoba | <a href="mailto:soporte@servicios.com">soporte@servicios.com</a> | <a
-                href="http://www.servicios.com">http://www.servicios.com</a></p>
-    </footer>
+    <div id="footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>

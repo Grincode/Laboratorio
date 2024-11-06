@@ -1,16 +1,26 @@
 <?php
-include ('conexion.php');
+include('conexion.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDITAR</title>
+    <title>Editar Material</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Pasar el nombre de usuario de la sesión a JavaScript
+        const username = "<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>";
+    </script>
 </head>
 
 <body>
+    <!-- Barra de navegación -->
+    <div id="navbar"></div>
     <?php
     if (isset($_POST['enviar'])) {
         $idmaterial = $_POST['idmaterial'];
@@ -18,7 +28,7 @@ include ('conexion.php');
         $descripcion = $_POST['descripcion'];
         $estado = $_POST['estado'];
 
-        $sql = "update componentes set material = '$material', descripcion = '$descripcion', estado = '$estado' where idmaterial = $idmaterial";
+        $sql = "UPDATE componentes SET material = '$material', descripcion = '$descripcion', estado = '$estado' WHERE idmaterial = $idmaterial";
         $result = mysqli_query($conexion, $sql);
 
         if ($result) {
@@ -30,7 +40,7 @@ include ('conexion.php');
         mysqli_close($conexion);
     } else {
         $idmaterial = $_GET['idmaterial'];
-        $sql = "select * from componentes where idmaterial = $idmaterial";
+        $sql = "SELECT * FROM componentes WHERE idmaterial = $idmaterial";
         $result = mysqli_query($conexion, $sql);
 
         $filas = mysqli_fetch_assoc($result);
@@ -40,27 +50,46 @@ include ('conexion.php');
         $estado = $filas['estado'];
 
         mysqli_close($conexion);
-
         ?>
 
-        <h2>Editar material</h2>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-            <label>Material:</label>
-            <input type="text" name="material" value="<?php echo $material; ?>"><br>
-            <label>Descripción:</label>
-            <input type="text" name="descripcion" value="<?php echo $descripcion; ?>"><br>
-            <label>Estado:</label>
-            <input type="number" name="estado" value="<?php echo $estado; ?>"><br>
 
-            <input type="hidden" name="idmaterial" value="<?php echo $idmaterial; ?>">
-            <input type="submit" name="enviar" value="ACTUALIZAR">
-            <a href="components.php">Regresar</a>
 
-        </form>
+        <div class="container-flex container mt-5">
+            <h2 class="mb-4">Editar Material</h2>
+
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                <div class="form-group">
+                    <label class="form-label">Material:</label>
+                    <input type="text" name="material" class="form-control"
+                        value="<?php echo htmlspecialchars($material); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Descripción:</label>
+                    <input type="text" name="descripcion" class="form-control"
+                        value="<?php echo htmlspecialchars($descripcion); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Estado:</label>
+                    <input type="number" name="estado" class="form-control" value="<?php echo htmlspecialchars($estado); ?>"
+                        required>
+                </div>
+
+                <input type="hidden" name="idmaterial" value="<?php echo $idmaterial; ?>">
+                <button type="submit" name="enviar" class="btn btn-primary btn-block">Actualizar</button>
+                <a href="components.php" class="btn btn-secondary btn-block">Regresar</a>
+            </form>
+        </div>
+
+
         <?php
     }
     ?>
 
+    <!-- Pie de página -->
+    <div id="footer"></div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
