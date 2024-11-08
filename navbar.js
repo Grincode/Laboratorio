@@ -23,7 +23,7 @@ function loadNavbar() {
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="components.php">Componentes</a></li>
                         <li class="nav-item">
-                            <span class="nav-link" style="font-weight: bold; color: #007bff; padding: 5px 10px; border: 1px solid #9c9c9c; border-radius: 5px;">Bienvenido!, ${username}</span>
+                            <span class="nav-link" style="font-weight: bold; color: #007bff; padding: 8px 10px; border: 1px solid #9c9c9c; border-radius: 5px;">Bienvenido! ${username}</span>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-danger nav-link text-white" href="logout.php" role="button">Logout</a>

@@ -27,19 +27,34 @@ body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Contenedor principal */
-.container-flex {
+.container {
+    background-color: var(--component-bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
     flex: 1;
 }
 
-.mb-6 {
-    color: #007bff;
+/* Títulos de la página */
+h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-section {
-    padding: 0 15px;
+/* Texto */
+p {
+    color: var(--gray-color);
+    line-height: 1.6;
 }
 
 /* Estilo para la barra de navegación */
@@ -81,31 +96,40 @@ section {
     text-align: center;
     padding: 10px 0;
     position: relative;
+    bottom: 0;
 }
 
-/* Estilo para los títulos principales */
-h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--secondary-color);
-    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color),
-        0 0 40px var(--accent-color), 0 0 70px var(--accent-color), 0 0 80px var(--accent-color),
-        0 0 100px var(--accent-color), 0 0 150px var(--accent-color);
-    padding: 10px;
-    display: inline-block;
-    border: 2px solid var(--gray-color);
-    border-radius: 10px;
+/* Contenedor para alinear títulos */
+.contacto-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    /* Espacio entre los dos elementos */
 }
 
-h2 {
+.informacion-contacto,
+.mapa-contenido {
+    flex: 1;
+    /* Asegura que ambos tengan el mismo ancho */
+}
+
+/* Estilo para los títulos de cada sección */
+.informacion-contacto h2,
+.mapa-contenido h2 {
+    margin-top: 0;
     color: var(--primary-color);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
 }
 
-/* Estilo para los subtítulos */
-h3 {
-    color: #a912e6;
-    margin-bottom: 15px;
+/* Estilos para el mapa */
+.mapa-contenido iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    border: 1px solid var(--component-border-color);
 }
 
 /* Estilo para los formularios */
@@ -172,8 +196,10 @@ form {
     }
 
     /* Estilos para los contenedores y los mapas */
-    .container-flex {
+    .container {
         padding: 15px;
+        margin: 20px;
+
     }
 
     .informacion-contacto,
@@ -183,7 +209,7 @@ form {
 
     /* Ajustar el tamaño de los títulos */
     h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .content-box {
